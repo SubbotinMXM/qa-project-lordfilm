@@ -31,11 +31,13 @@ public class FilterPage {
     }
 
     public FilterPage chooseYear(){
+        yearSlider.should(Condition.interactable).click();
         Selenide.actions().dragAndDropBy(yearSlider, 148, 0).build().perform();
         return this;
     }
 
     public FilterPage chooseKP(){
+        kpSlider.should(Condition.interactable).click();
         Selenide.actions().dragAndDropBy(kpSlider, 140, 0).build().perform();
         return this;
     }
@@ -47,7 +49,12 @@ public class FilterPage {
 
     public SearchResultPage clickSearchButton(){
         searchButton.click();
+        searchButton.should(Condition.disappear);
         return new SearchResultPage();
+    }
+
+    public FilterPage(){
+        searchButton.should(Condition.interactable);
     }
 }
 

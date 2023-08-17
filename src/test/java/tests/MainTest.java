@@ -6,7 +6,6 @@ import pages.MoviePage;
 
 public class MainTest {
     private final static String BASE_URL = "https://h1.lordfilm.film/";
-
     @Test
     public void shouldFiltersWorkCorrect() {
         String expectedActorName = "Киану Ривз";
@@ -18,10 +17,10 @@ public class MainTest {
         MainPage mainPage = new MainPage(BASE_URL);
         MoviePage moviePage = mainPage
                 .clickOnMovieButton()
-                .chooseGenre(expectedGenre)
-                .chooseCountry(expectedCountry)
                 .chooseKP()
                 .chooseYear()
+                .chooseGenre(expectedGenre)
+                .chooseCountry(expectedCountry)
                 .typeName(expectedActorName)
                 .clickSearchButton()
                 .clickOnCard();
@@ -33,5 +32,4 @@ public class MainTest {
         moviePage.assertYear(expectedYear);
 
     }
-
 }
